@@ -13,9 +13,7 @@ function getFormatedDate(date, format) {
 
 // this method is called when the extension is activated
 function activate(context) {
-  console.log(
-    'changelog-support is now active!'
-  );
+  console.log("changelog-support is now active!");
 
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
