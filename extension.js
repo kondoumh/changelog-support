@@ -24,8 +24,13 @@ function activate(context) {
       if (!editor) {
         return;
       }
+      const mailaddress = vscode.workspace.getConfiguration("changelog")
+        .mailaddress;
       const headline =
-        getFormatedDate(new Date(), "YYYY-MM-DD WW") + "  <kondoh@local>";
+        getFormatedDate(new Date(), "YYYY-MM-DD WW") +
+        "  <" +
+        mailaddress +
+        ">";
       let selection = editor.selection;
 
       editor.edit(editorEdit => {
@@ -34,7 +39,6 @@ function activate(context) {
       });
     }
   );
-
   context.subscriptions.push(disposable);
 }
 exports.activate = activate;

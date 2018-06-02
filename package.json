@@ -16,7 +16,28 @@
         "command": "extension.insertItem",
         "title": "Insert ChangeLog Item"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "changelog-support configuration",
+      "properties": {
+        "changelog.mailaddress": {
+          "type": "string",
+          "default": "your@mail.address",
+          "description": "Specify your mail address"
+        },
+        "changelog.weekdayitems": {
+          "type": "array",
+          "default": ["job", "meating"],
+          "description": "Specify items you use in weekday"
+        },
+        "changelog.weekenditems": {
+          "type": "array",
+          "default": ["fishing", "drive"],
+          "description": "Specify items you use in weekend"
+        }
+      }
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
