@@ -1,6 +1,6 @@
 const vscode = require("vscode");
 
-function getFormatedDate(date, format) {
+const getFormatedDate = (date, format) => {
   format = format.replace(/YYYY/g, date.getFullYear());
   format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2));
   format = format.replace(/DD/g, ("0" + date.getDate()).slice(-2));
@@ -9,35 +9,39 @@ function getFormatedDate(date, format) {
     ["日", "月", "火", "水", "木", "金", "土"][date.getDay()]
   );
   return format;
-}
+};
 
-function isWeekDay(date) {
+const isWeekDay = date => {
   const dayOfWeek = date.getDay();
   return dayOfWeek > 0 && dayOfWeek < 6;
-}
+};
 
-function createHeadline() {
-  const mailaddress = vscode.workspace.getConfiguration("changelog")
-    .mailaddress;
+const getConfiguration = () => vscode.workspace.getConfiguration("changelog");
+
+const createHeadline = () => {
+  const mailaddress = getConfiguration().mailaddress;
   const headline =
     getFormatedDate(new Date(), "YYYY-MM-DD WW") + "  <" + mailaddress + ">";
   return headline;
-}
+};
 
-function createTemplate() {
+const createTemplate = () => {
   const date = new Date();
   let items;
   if (isWeekDay(date)) {
-    items = vscode.workspace.getConfiguration("changelog").weekdayitems;
+    items = getConfiguration().weekdayitems;
   } else {
-    items = vscode.workspace.getConfiguration("changelog").weekenditems;
+    items = getConfiguration().weekenditems;
+  }
+  if (items.length == 0) {
+    return "";
   }
   let templ = "\n\n";
   items.forEach(item => {
     templ += `\t* ${item}:\n`;
   });
   return templ;
-}
+};
 
 // this method is called when the extension is activated
 function activate(context) {
