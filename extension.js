@@ -18,15 +18,15 @@ function activate(context) {
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
     "extension.insertItem",
-    function() {
+    () => {
       // The code placed here will be executed every time command is executed
-      var editor = vscode.window.activeTextEditor;
+      const editor = vscode.window.activeTextEditor;
       if (!editor) {
         return;
       }
-      var headline =
+      const headline =
         getFormatedDate(new Date(), "YYYY-MM-DD WW") + "  <kondoh@local>";
-      var selection = editor.selection;
+      let selection = editor.selection;
 
       editor.edit(editorEdit => {
         editorEdit.replace(selection, "");
