@@ -11,6 +11,34 @@ function getFormatedDate(date, format) {
   return format;
 }
 
+function isWeekDay(date) {
+  const dayOfWeek = date.getDay();
+  return dayOfWeek > 0 && dayOfWeek < 6;
+}
+
+function createHeadline() {
+  const mailaddress = vscode.workspace.getConfiguration("changelog")
+    .mailaddress;
+  const headline =
+    getFormatedDate(new Date(), "YYYY-MM-DD WW") + "  <" + mailaddress + ">";
+  return headline;
+}
+
+function createTemplate() {
+  const date = new Date();
+  let items;
+  if (isWeekDay(date)) {
+    items = vscode.workspace.getConfiguration("changelog").weekdayitems;
+  } else {
+    items = vscode.workspace.getConfiguration("changelog").weekenditems;
+  }
+  let templ = "\n\n";
+  items.forEach(item => {
+    templ += `\t* ${item}:\n`;
+  });
+  return templ;
+}
+
 // this method is called when the extension is activated
 function activate(context) {
   console.log("changelog-support is now active!");
@@ -24,18 +52,12 @@ function activate(context) {
       if (!editor) {
         return;
       }
-      const mailaddress = vscode.workspace.getConfiguration("changelog")
-        .mailaddress;
-      const headline =
-        getFormatedDate(new Date(), "YYYY-MM-DD WW") +
-        "  <" +
-        mailaddress +
-        ">";
+      const headline = createHeadline();
+      const templ = createTemplate();
       let selection = editor.selection;
-
       editor.edit(editorEdit => {
         editorEdit.replace(selection, "");
-        editorEdit.insert(selection.active, headline);
+        editorEdit.insert(selection.active, headline + templ);
       });
     }
   );
