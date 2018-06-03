@@ -38,7 +38,11 @@ const createTemplate = () => {
   }
   let templ = "\n\n";
   items.forEach(item => {
-    templ += `\t* ${item}:\n`;
+    if (item[0] == '-') {
+      templ += `\t${item}:\n`;
+    } else {
+      templ += `\t* ${item}:\n`;
+    }
   });
   return templ;
 };
