@@ -14,7 +14,7 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 
 ### snippet
 
-![snippet](./asset/snippet.gif =500x)
+![snippet](./asset/snippet.gif)
 
 ## Extension Settings
 
