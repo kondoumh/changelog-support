@@ -32,16 +32,17 @@ example:
     "fishing"
 ]
 ```
-
+
 ChageLog image
-```
+
+```
 2018-06-08 金  <kondoh@local>
 
-	* task:チケットメンテナンス
+	* task:チケット更新
 	* meeting:仕様検討
-	- UI コンポーネントの振る舞い変更
+	UI コンポーネントの振る舞い変更
 	* development:
-	- バリデーション機能実装
+	バリデーション機能実装
 ```
 
 ## Release Notes
