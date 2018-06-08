@@ -39,7 +39,7 @@ ChageLog image
 ```
 2018-06-08 金  <kondoh@local>
 
-	* task:チケット更新
+	* task:チケット管理
 	* meeting:仕様検討
 	UI コンポーネントの振る舞い変更
 	* development:
@@ -54,4 +54,4 @@ Initial release
 
 ### 0.0.2
 
-Integrate syntax highliting
+Integrate syntax highliting & snippet
