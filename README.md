@@ -14,7 +14,7 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 
 ### snippet
 
-![snippet](./asset/snippet.gif)
+<img src="./asset/snippet.gif" alt="snippet" width="800px"/>
 
 ## Extension Settings
 
