@@ -2,7 +2,7 @@
   "name": "changelog-support",
   "displayName": "changelog-support",
   "description": "Extension to support writeing ChangeLog.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "kondoumh",
   "engines": {
     "vscode": "^1.19.0"
