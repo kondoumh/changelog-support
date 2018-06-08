@@ -40,6 +40,12 @@
         "path": "./syntaxes/changelog.tmLanguage.json"
       }
     ],
+    "snippets": [
+      {
+        "language": "changelog",
+        "path": "./snippets/snippets.json"
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "changelog-support configuration",

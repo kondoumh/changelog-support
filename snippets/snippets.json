@@ -1,0 +1,9 @@
+{
+    "Tag" : {
+        "prefix": "tag",
+        "body": [
+            "* ${1:tagName}:"
+        ],
+        "description": "ChangeLog tag"
+    }
+}
