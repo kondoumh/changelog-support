@@ -47,7 +47,7 @@ ChageLog image
 ```
 2018-06-08 金  <kondoh@local>
 
-	* task:チケット
+	* task:チケット更新
 	* meeting:仕様検討
 	UI コンポーネントの振る舞い変更
 	* development:
