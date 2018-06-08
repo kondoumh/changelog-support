@@ -12,6 +12,10 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 - Insert item(tag) set (for weekday / weekend)
 - Snippet for input item(tag)
 
+### insert items
+
+<img src="./asset/insert.gif" alt="snippet" width="800px"/>
+
 ### snippet
 
 <img src="./asset/snippet.gif" alt="snippet" width="800px"/>
@@ -43,7 +47,7 @@ ChageLog image
 ```
 2018-06-08 金  <kondoh@local>
 
-	* task:チケット管理
+	* task:チケット
 	* meeting:仕様検討
 	UI コンポーネントの振る舞い変更
 	* development:
