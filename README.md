@@ -9,15 +9,16 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 
 - ChangeLog syntax highlighting
 - Insert headline (date & mail address)
-- Insert item set (for weekday / weekend)
+- Insert item(tag) set (for weekday / weekend)
+- Snippet for input item(tag)
 
 ## Extension Settings
 
 This extension contributes the following settings:
 
 - `changelog.mailaddress`: your mail address for headline
-- `changelog.weekdayitems`: labels you use in weekday.
-- `changelog.weekenditems`: labels you use in weekend.
+- `changelog.weekdayitems`: items(tags) you use in weekday.
+- `changelog.weekenditems`: items(tags) you use in weekend.
 
 example:
 ```json
