@@ -1,0 +1,59 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "changelog",
+    "patterns": [{
+            "include": "#tag"
+        },
+        {
+            "include": "#headline"
+        },
+        {
+            "include": "#list"
+        }
+    ],
+    "repository": {
+        "tag": {
+            "patterns": [{
+                "match": "^\\t(\\*)\\s([^:]+)(:).*",
+                "captures": {
+                    "1": {
+                        "name": "constant.regexp.changelog"
+                    },
+                    "2": {
+                        "name": "markup.changed.changelog"
+                    },
+                    "3": {
+                        "name": "constant.regexp.changelog"
+                    }
+                }
+            }]
+        },
+        "headline": {
+            "patterns": [{
+                "match": "^([0-9]{4}-[0-9]{2}-[0-9]{2})\\s+([日月火水木金土])\\s+<([^@]+@[^@]+)>$",
+                "captures": {
+                    "1": {
+                        "name": "markup.deleted.changelog"
+                    },
+                    "2": {
+                        "name": "comment.changelog"
+                    },
+                    "3": {
+                        "name": "entity.name.tag.css.changelog"
+                    }
+                }
+            }]
+        },
+        "list": {
+            "patterns":[{
+                "match": "^\\t(\\-)\\s.*$",
+                "captures": {
+                    "1": {
+                        "name": "constant.numeric.changelog"
+                    }
+                }
+            }]
+        }
+    },
+    "scopeName": "source.changelog"
+}

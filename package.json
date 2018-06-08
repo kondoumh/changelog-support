@@ -7,14 +7,37 @@
   "engines": {
     "vscode": "^1.19.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["onCommand:extension.insertItem"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.insertItem"
+  ],
   "main": "./extension",
   "contributes": {
     "commands": [
       {
         "command": "extension.insertItem",
         "title": "Insert ChangeLog Item"
+      }
+    ],
+    "languages": [
+      {
+        "id": "changelog",
+        "aliases": [
+          "changelog"
+        ],
+        "filenames": [
+          "ChangeLog"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "changelog",
+        "scopeName": "source.changelog",
+        "path": "./syntaxes/changelog.tmLanguage.json"
       }
     ],
     "configuration": {
@@ -28,12 +51,18 @@
         },
         "changelog.weekdayitems": {
           "type": "array",
-          "default": ["job", "meating"],
+          "default": [
+            "job",
+            "meating"
+          ],
           "description": "Specify items you use in weekday"
         },
         "changelog.weekenditems": {
           "type": "array",
-          "default": ["fishing", "drive"],
+          "default": [
+            "fishing",
+            "drive"
+          ],
           "description": "Specify items you use in weekend"
         }
       }
