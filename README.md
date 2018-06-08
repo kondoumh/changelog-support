@@ -12,6 +12,10 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 - Insert item(tag) set (for weekday / weekend)
 - Snippet for input item(tag)
 
+### snippet
+
+![snippet](./asset/snippet.gif =500x)
+
 ## Extension Settings
 
 This extension contributes the following settings:
