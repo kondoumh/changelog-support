@@ -16,7 +16,7 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 
 This extension contributes the following settings:
 
-- `changelog.mailaddress`: your mail address for headline
+- `changelog.mailaddress`: your mail address for headline
 - `changelog.weekdayitems`: items(tags) you use in weekday.
 - `changelog.weekenditems`: items(tags) you use in weekend.
 
