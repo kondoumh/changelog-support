@@ -14,11 +14,11 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 
 ### insert items
 
-<img src="./asset/insert.gif" alt="snippet" width="800px"/>
+![insert](./asset/insert.gif)
 
 ### snippet
 
-<img src="./asset/snippet.gif" alt="snippet" width="800px"/>
+![snippet](./asset/snippet.gif)
 
 ## Extension Settings
 
