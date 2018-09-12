@@ -4,6 +4,7 @@
   "description": "Extension to support writeing ChangeLog.",
   "version": "0.0.2",
   "publisher": "kondoumh",
+  "icon": "asset/icon.svg",
   "engines": {
     "vscode": "^1.19.0"
   },
