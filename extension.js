@@ -1,13 +1,16 @@
 const vscode = require("vscode");
 
+const getConfiguration = () => vscode.workspace.getConfiguration("changelog");
+
 const getFormatedDate = (date, format) => {
+  let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  if (getConfiguration().dayOfWeek === "jp") {
+    daysOfWeek = ["日", "月", "火", "水", "木", "金", "土"];
+  }
   format = format.replace(/YYYY/g, date.getFullYear());
   format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2));
   format = format.replace(/DD/g, ("0" + date.getDate()).slice(-2));
-  format = format.replace(
-    /WW/g,
-    ["日", "月", "火", "水", "木", "金", "土"][date.getDay()]
-  );
+  format = format.replace(/WW/g, daysOfWeek[date.getDay()]);
   return format;
 };
 
@@ -15,8 +18,6 @@ const isWeekDay = date => {
   const dayOfWeek = date.getDay();
   return dayOfWeek > 0 && dayOfWeek < 6;
 };
-
-const getConfiguration = () => vscode.workspace.getConfiguration("changelog");
 
 const createHeadline = () => {
   const mailaddress = getConfiguration().mailaddress;
