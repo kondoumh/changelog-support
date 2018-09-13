@@ -68,16 +68,21 @@
         "changelog.weekdayitems": {
           "type": "array",
           "default": [
-            "job",
-            "meating"
+            "development",
+            "meeting"
           ],
           "description": "Specify items you use in weekday"
+        },
+        "changelog.dayOfWeek" : {
+          "type": "string",
+          "default": "en",
+          "description": "Specify character for day of Week. 'en' or 'jp'"
         },
         "changelog.weekenditems": {
           "type": "array",
           "default": [
-            "fishing",
-            "drive"
+            "exercise",
+            "fishing"
           ],
           "description": "Specify items you use in weekend"
         }
