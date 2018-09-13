@@ -8,6 +8,15 @@
   "engines": {
     "vscode": "^1.19.0"
   },
+  "repository": {
+    "url": "https://github.com/kondoumh/changelog-support"
+  },
+  "author": {
+    "name": "kondoumh",
+    "email": "kondoumh@gmail.com",
+    "url": "https://kondoumh.com/"
+  },
+  "license": "MIT",
   "categories": [
     "Other"
   ],
@@ -74,10 +83,6 @@
         }
       }
     }
-  },
-  "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "typescript": "^2.6.1",
