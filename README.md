@@ -24,22 +24,24 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 
 This extension contributes the following settings:
 
-- `changelog.mailaddress`: your mail address for headline
-- `changelog.weekdayitems`: items(tags) you use in weekday.
-- `changelog.weekenditems`: items(tags) you use in weekend.
+- `changelog.mailAddress`: your mail address for headline
+- `changelog.weekdayItems`: items(tags) you use in weekday.
+- `changelog.weekendItems`: items(tags) you use in weekend.
+- `changelog.dayOfWeekLang`: locale for displaying the day of week. default 'en'.
 
 example:
 ```json
-"changelog.mailaddress": "your@mail.address",
-"changelog.weekdayitems": [
+"changelog.mailAddress": "your@mail.address",
+"changelog.weekdayItems": [
     "task",
     "meeting",
     "development"
 ],
-"changelog.weekenditems": [
+"changelog.weekendItems": [
     "driving",
     "fishing"
-]
+],
+"changelog.dayOfWeekLang": "ja"
 ```
 
 ChageLog image
