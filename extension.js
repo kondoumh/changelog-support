@@ -4,7 +4,7 @@ const getConfiguration = () => vscode.workspace.getConfiguration("changelog");
 
 const getFormatedDate = (date, format) => {
   let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  if (getConfiguration().dayOfWeek === "jp") {
+  if (getConfiguration().dayOfWeekLang === "ja") {
     daysOfWeek = ["日", "月", "火", "水", "木", "金", "土"];
   }
   format = format.replace(/YYYY/g, date.getFullYear());
@@ -20,9 +20,9 @@ const isWeekDay = date => {
 };
 
 const createHeadline = () => {
-  const mailaddress = getConfiguration().mailaddress;
+  const mailAddress = getConfiguration().mailAddress;
   const headline =
-    getFormatedDate(new Date(), "YYYY-MM-DD WW") + "  <" + mailaddress + ">";
+    getFormatedDate(new Date(), "YYYY-MM-DD WW") + "  <" + mailAddress + ">";
   return headline;
 };
 
@@ -30,9 +30,9 @@ const createTemplate = () => {
   const date = new Date();
   let items;
   if (isWeekDay(date)) {
-    items = getConfiguration().weekdayitems;
+    items = getConfiguration().weekdayItems;
   } else {
-    items = getConfiguration().weekenditems;
+    items = getConfiguration().weekendItems;
   }
   if (items.length == 0) {
     return "";

@@ -60,31 +60,31 @@
       "type": "object",
       "title": "changelog-support configuration",
       "properties": {
-        "changelog.mailaddress": {
+        "changelog.mailAddress": {
           "type": "string",
           "default": "your@mail.address",
           "description": "Specify your mail address"
         },
-        "changelog.weekdayitems": {
+        "changelog.dayOfWeekLang" : {
+          "type": "string",
+          "default": "en",
+          "description": "Specify language for day of Week. 'en' or 'ja'"
+        },
+        "changelog.weekdayItems": {
           "type": "array",
           "default": [
             "development",
             "meeting"
           ],
-          "description": "Specify items you use in weekday"
+          "description": "Specify items for weekdays"
         },
-        "changelog.dayOfWeek" : {
-          "type": "string",
-          "default": "en",
-          "description": "Specify character for day of Week. 'en' or 'jp'"
-        },
-        "changelog.weekenditems": {
+        "changelog.weekendItems": {
           "type": "array",
           "default": [
             "exercise",
             "fishing"
           ],
-          "description": "Specify items you use in weekend"
+          "description": "Specify items for weekends"
         }
       }
     }
