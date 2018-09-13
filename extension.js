@@ -1,35 +1,26 @@
 const vscode = require("vscode");
+const moment = require("moment");
 
 const getConfiguration = () => vscode.workspace.getConfiguration("changelog");
 
-const getFormatedDate = (date, format) => {
-  let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  if (getConfiguration().dayOfWeekLang === "ja") {
-    daysOfWeek = ["日", "月", "火", "水", "木", "金", "土"];
-  }
-  format = format.replace(/YYYY/g, date.getFullYear());
-  format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2));
-  format = format.replace(/DD/g, ("0" + date.getDate()).slice(-2));
-  format = format.replace(/WW/g, daysOfWeek[date.getDay()]);
-  return format;
-};
-
-const isWeekDay = date => {
-  const dayOfWeek = date.getDay();
-  return dayOfWeek > 0 && dayOfWeek < 6;
-};
-
-const createHeadline = () => {
+const createHeadline = (date) => {
   const mailAddress = getConfiguration().mailAddress;
-  const headline =
-    getFormatedDate(new Date(), "YYYY-MM-DD WW") + "  <" + mailAddress + ">";
-  return headline;
+  
+  if (getConfiguration().dayOfWeekLang === "ja") {
+    moment.locale('ja', {weekdaysShort: ["日", "月", "火", "水", "木", "金", "土"]});
+  } else {
+    moment.locale('en');
+  }
+
+  const now = moment(date);
+  const today =now.format("YYYY-MM-DD");
+  const dayOfWeek = now.format("ddd");
+  return `${today} ${dayOfWeek}  <${mailAddress}>`;
 };
 
-const createTemplate = () => {
-  const date = new Date();
+const createTemplate = (date) => {
   let items;
-  if (isWeekDay(date)) {
+  if (date.getDay() > 0 && date.getDay() < 6) {
     items = getConfiguration().weekdayItems;
   } else {
     items = getConfiguration().weekendItems;
@@ -61,8 +52,9 @@ function activate(context) {
       if (!editor) {
         return;
       }
-      const headline = createHeadline();
-      const templ = createTemplate();
+      const date = new Date();
+      const headline = createHeadline(date);
+      const templ = createTemplate(date);
       let selection = editor.selection;
       editor.edit(editorEdit => {
         editorEdit.replace(selection, "");
