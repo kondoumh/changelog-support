@@ -65,7 +65,7 @@
           "default": "your@mail.address",
           "description": "Specify your mail address"
         },
-        "changelog.dayOfWeekLang" : {
+        "changelog.dayOfWeekLang": {
           "type": "string",
           "default": "en",
           "description": "Specify language for day of Week. 'en' or 'ja'"
