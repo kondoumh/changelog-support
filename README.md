@@ -46,7 +46,7 @@ example:
 
 ChageLog image
 
-```
+```
 2018-06-08 金  <kondoh@local>
 
 	* task:チケット更新
@@ -58,10 +58,11 @@ ChageLog image
 
 ## Release Notes
 
-### 0.0.1
-
-Initial release
+### 0.0.3
+Fix security alert related to dependent library version
 
 ### 0.0.2
-
 Integrate syntax highliting & snippet
+
+### 0.0.1
+First release
