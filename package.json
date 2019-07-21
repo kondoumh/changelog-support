@@ -91,10 +91,10 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
-    "@types/node": "^7.10.6",
+    "@types/node": "^7.10.7",
     "eslint": "^5.16.0",
     "typescript": "^2.6.1",
-    "vscode": "^1.1.33"
+    "vscode": "^1.1.35"
   },
   "dependencies": {
     "moment": "^2.24.0"
