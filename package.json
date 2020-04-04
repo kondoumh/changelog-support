@@ -40,6 +40,9 @@
         "filenames": [
           "ChangeLog"
         ],
+        "extensions": [
+          ".ChangeLog"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
