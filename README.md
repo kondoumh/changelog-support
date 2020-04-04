@@ -58,6 +58,9 @@ ChageLog image
 
 ## Release Notes
 
+### 0.1.0
+Support "ChangeLog" as file extension i.e. `foo.ChangeLog`
+
 ### 0.0.3
 Fix security alert related to dependent library version
 
