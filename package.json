@@ -95,7 +95,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "minimist": ">=1.2.6",
-    "vscode": "^1.1.36"
+    "vscode": "^1.1.37"
   },
   "dependencies": {
     "moment": "^2.29.4"
