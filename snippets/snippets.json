@@ -2,7 +2,7 @@
     "Tag" : {
         "prefix": "tag",
         "body": [
-            "* ${1:tagName}:${2:tagDescription}"
+            "* ${1:tag}:${2:statement}"
         ],
         "description": "ChangeLog tag"
     }
