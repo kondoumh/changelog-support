@@ -1,5 +1,5 @@
 const vscode = require("vscode");
-const moment = require("moment");
+const dayjs = require("dayjs");
 
 const getConfiguration = () => vscode.workspace.getConfiguration("changelog");
 
@@ -7,12 +7,12 @@ const createHeadline = (date) => {
   const mailAddress = getConfiguration().mailAddress;
   
   if (getConfiguration().dayOfWeekLang === "ja") {
-    moment.locale('ja', {weekdaysShort: ["日", "月", "火", "水", "木", "金", "土"]});
+    dayjs.locale('ja', {weekdaysShort: ["日", "月", "火", "水", "木", "金", "土"]});
   } else {
-    moment.locale('en');
+    dayjs.locale('en');
   }
 
-  const now = moment(date);
+  const now = dayjs(date);
   const today =now.format("YYYY-MM-DD");
   const dayOfWeek = now.format("ddd");
   return `${today} ${dayOfWeek}  <${mailAddress}>`;
