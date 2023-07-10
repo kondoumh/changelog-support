@@ -20,9 +20,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:extension.insertItem"
-  ],
+  "activationEvents": [],
   "main": "./extension",
   "contributes": {
     "commands": [
