@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.2.0] - 2023-07-10
+- Add placeholder to snippet. 
+  - from `* {tag}:` to `* {tag}:{statement}`
+- Update dependencies
+
 ## [0.1.0] - 2020-04-04
 - Support "ChangeLog" as file extension i.e. `foo.ChangeLog`
 
