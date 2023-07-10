@@ -10,7 +10,7 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 - ChangeLog syntax highlighting
 - Insert headline (date & mail address)
 - Insert item(tag) set (for weekday / weekend)
-- Snippet for input item(tag)
+- Snippet for input item(tag and statement)
 
 ### insert items
 
