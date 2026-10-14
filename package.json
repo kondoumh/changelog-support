@@ -20,7 +20,10 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.insertItem",
+    "onLanguage:changelog"
+  ],
   "main": "./extension",
   "contributes": {
     "commands": [
@@ -69,7 +72,12 @@
         "changelog.dayOfWeekLang": {
           "type": "string",
           "default": "en",
-          "description": "Specify language for day of Week. 'en' or 'ja'"
+          "enum": [
+            "en",
+            "ja",
+            "none"
+          ],
+          "description": "Specify language for day of week. Set to 'none' to hide weekday."
         },
         "changelog.weekdayItems": {
           "type": "array",
@@ -86,6 +94,11 @@
             "fishing"
           ],
           "description": "Specify items for weekends"
+        },
+        "changelog.outlineShowBulletItems": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show bullet item tags in the Outline view."
         }
       }
     }

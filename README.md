@@ -11,6 +11,7 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 - Insert headline (date & mail address)
 - Insert item(tag) set (for weekday / weekend)
 - Snippet for input item(tag and statement)
+- Outline support for ChangeLog sections and items
 
 ### insert items
 
@@ -27,7 +28,8 @@ This extension contributes the following settings:
 - `changelog.mailAddress`: your mail address for headline
 - `changelog.weekdayItems`: items(tags) you use in weekday.
 - `changelog.weekendItems`: items(tags) you use in weekend.
-- `changelog.dayOfWeekLang`: locale for displaying the day of week. default 'en'.
+- `changelog.dayOfWeekLang`: locale for displaying the day of week. `en`, `ja`, or `none`. default `en`.
+- `changelog.outlineShowBulletItems`: show bullet item tags in Outline. default `true`.
 
 example:
 ```json
@@ -41,7 +43,8 @@ example:
     "driving",
     "fishing"
 ],
-"changelog.dayOfWeekLang": "ja"
+"changelog.dayOfWeekLang": "ja",
+"changelog.outlineShowBulletItems": true
 ```
 
 ChageLog image
