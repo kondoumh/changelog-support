@@ -2,7 +2,7 @@
   "name": "changelog-support",
   "displayName": "changelog-support",
   "description": "Extension to support writing ChangeLog.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "kondoumh",
   "icon": "asset/icon.png",
   "engines": {
