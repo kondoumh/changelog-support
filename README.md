@@ -12,6 +12,8 @@ Rather than writing software changes, I assume that we will use the ChangeLog fo
 - Insert item(tag) set (for weekday / weekend)
 - Snippet for input item(tag and statement)
 - Outline support for ChangeLog sections and items
+- File name and token completion for GNU-style entries
+- Go to Definition support for file names and referenced tokens
 
 ### insert items
 
