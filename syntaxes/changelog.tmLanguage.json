@@ -1,11 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "changelog",
-    "patterns": [{
-            "include": "#tag"
-        },
+    "patterns": [
         {
             "include": "#headline"
+        },
+        {
+            "include": "#tag"
         },
         {
             "include": "#list"
@@ -13,46 +14,66 @@
     ],
     "repository": {
         "tag": {
-            "patterns": [{
-                "match": "^\\t(\\*)\\s([^:]+)(:).*",
-                "captures": {
-                    "1": {
-                        "name": "constant.regexp.changelog"
-                    },
-                    "2": {
-                        "name": "markup.changed.changelog"
-                    },
-                    "3": {
-                        "name": "constant.regexp.changelog"
+            "patterns": [
+                {
+                    "match": "^(\\s*)(\\*)(\\s+)([^:]+?)(\\s*)(:)(.*)$",
+                    "captures": {
+                        "2": {
+                            "name": "punctuation.definition.list.begin.changelog"
+                        },
+                        "4": {
+                            "name": "entity.name.tag.changelog"
+                        },
+                        "6": {
+                            "name": "punctuation.separator.key-value.changelog"
+                        },
+                        "7": {
+                            "name": "string.unquoted.changelog"
+                        }
+                    }
+                },
+                {
+                    "match": "^(\\s*)(\\*)(\\s+)([^:]+)$",
+                    "captures": {
+                        "2": {
+                            "name": "punctuation.definition.list.begin.changelog"
+                        },
+                        "4": {
+                            "name": "entity.name.tag.changelog"
+                        }
                     }
                 }
-            }]
+            ]
         },
         "headline": {
-            "patterns": [{
-                "match": "^([0-9]{4}-[0-9]{2}-[0-9]{2})\\s+([日月火水木金土])\\s+<([^@]+@[^@]+)>$",
-                "captures": {
-                    "1": {
-                        "name": "markup.deleted.changelog"
-                    },
-                    "2": {
-                        "name": "comment.changelog"
-                    },
-                    "3": {
-                        "name": "entity.name.tag.css.changelog"
+            "patterns": [
+                {
+                    "match": "^([0-9]{4}-[0-9]{2}-[0-9]{2})(?:\\s+([A-Za-z]{2,9}|[日月火水木金土]))?\\s+<([^@<>\\s]+@[^@<>\\s]+)>$",
+                    "captures": {
+                        "1": {
+                            "name": "constant.numeric.date.changelog"
+                        },
+                        "2": {
+                            "name": "comment.line.day-of-week.changelog"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.email.changelog"
+                        }
                     }
                 }
-            }]
+            ]
         },
         "list": {
-            "patterns":[{
-                "match": "^\\t(\\-)\\s.*$",
-                "captures": {
-                    "1": {
-                        "name": "constant.numeric.changelog"
+            "patterns": [
+                {
+                    "match": "^(\\s*)(\\-)\\s.*$",
+                    "captures": {
+                        "2": {
+                            "name": "punctuation.definition.list.begin.changelog"
+                        }
                     }
                 }
-            }]
+            ]
         }
     },
     "scopeName": "source.changelog"
