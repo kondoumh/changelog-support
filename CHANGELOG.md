@@ -1,5 +1,12 @@
 # Change Log
 
+## [Unreleased]
+- Improve syntax highlighting patterns and scopes for better theme compatibility
+  - support both tab and space indentation in list/tag lines
+  - keep highlighting on in-progress bullet entries (for example `* tag` while typing)
+  - broaden headline matching for weekday variants (`en` / `ja` / no weekday)
+- Pin `@types/vscode` to `1.80.0` to keep it aligned with `engines.vscode`
+
 ## [0.3.0] - 2026-10-14
 - Add `changelog.dayOfWeekLang: "none"` to insert headline without weekday
 - Add Outline integration for ChangeLog sections and items
@@ -24,6 +31,3 @@
 
 ## [0.0.2] - 2018-09-14
 - Integrate syntax highliting & snippet
-
-## [Unreleased]:
--- Initial release
