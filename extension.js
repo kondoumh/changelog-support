@@ -9,6 +9,16 @@ const filenameCompletionPattern = /^\s*\*\s+([^\s(:]*)$/;
 const tokenCompletionPattern = /^\s*\*\s+([^\s(:]+)\s*\(([^)]*)$/;
 const ignoredFilesPattern = "**/{.git,node_modules,dist,build,out,coverage,.vscode-test}/**";
 
+const getDocumentDirectoryUri = (document) => vscode.Uri.file(path.dirname(document.uri.fsPath));
+const normalizeRelativePath = (relativePath) => relativePath.split(path.sep).join("/");
+const toDocumentRelativePath = (document, targetUri) => {
+  const relativePath = path.relative(
+    getDocumentDirectoryUri(document).fsPath,
+    targetUri.fsPath
+  );
+  return normalizeRelativePath(relativePath);
+};
+
 const createHeadline = (date, configuration) => {
   const config = configuration || getConfiguration();
   const mailAddress = config.mailAddress;
@@ -150,6 +160,12 @@ const findFileUriFromToken = (document, fileToken) => {
     return Promise.resolve(null);
   }
 
+  const documentDirectoryUri = getDocumentDirectoryUri(document);
+  const documentRelativeCandidate = vscode.Uri.joinPath(documentDirectoryUri, fileToken);
+  const documentCandidateCheck = vscode.workspace.fs.stat(documentRelativeCandidate)
+    .then(() => documentRelativeCandidate)
+    .catch(() => null);
+
   const workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
   let workspaceCandidateCheck = Promise.resolve(null);
   if (workspaceFolder && fileToken.includes("/")) {
@@ -159,7 +175,12 @@ const findFileUriFromToken = (document, fileToken) => {
       .catch(() => null);
   }
 
-  return workspaceCandidateCheck.then(candidate => {
+  return documentCandidateCheck.then(documentCandidate => {
+    if (documentCandidate) {
+      return documentCandidate;
+    }
+    return workspaceCandidateCheck;
+  }).then(candidate => {
     if (candidate) {
       return candidate;
     }
@@ -302,7 +323,7 @@ const createCompletionProvider = () => ({
       const prefix = filenameMatch[1];
       return vscode.workspace.findFiles("**/*", ignoredFilesPattern, 2000).then(fileUris => {
         const filtered = fileUris
-          .map(uri => vscode.workspace.asRelativePath(uri, false))
+          .map(uri => toDocumentRelativePath(document, uri))
           .filter(relativePath =>
             relativePath.toLowerCase().includes(prefix.toLowerCase()) ||
             path.basename(relativePath).toLowerCase().includes(prefix.toLowerCase())
